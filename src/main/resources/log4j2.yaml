@@ -11,7 +11,7 @@ Configuration:
         name: Child_Appender
         fileName: childlogfile.log
         PatternLayout:
-          Pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+          Pattern: "[%p] %d{yyyy-MM-dd HH:mm}{GMT+0} %c - %m%n"
   Loggers:
     logger:
       -
