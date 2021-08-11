@@ -2,10 +2,16 @@ Configuration:
   status: warn
   Appenders:
     File:
-      name: File_Appender
-      fileName: logfile.log
-      PatternLayout:
-        Pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+      -
+        name: File_Appender
+        fileName: logfile.log
+        PatternLayout:
+          Pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+      -
+        name: Child_Appender
+        fileName: childlogfile.log
+        PatternLayout:
+          Pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
   Loggers:
     logger:
       -
@@ -19,7 +25,7 @@ Configuration:
         level: debug
         additivity: false                       #evitar enviar a mensagem de log para loggers ascendentes
         AppenderRef:
-          ref: File_Appender
+          ref: Child_Appender
     Root:
       level: debug
       AppenderRef:

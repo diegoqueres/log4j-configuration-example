@@ -30,5 +30,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-### Projet ###
+### Log files ###
 logfile.log
+childlogfile.log
