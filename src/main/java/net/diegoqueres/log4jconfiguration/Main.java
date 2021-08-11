@@ -8,11 +8,19 @@ public class Main {
 
     public static void main(String[] args) {
         String message = "Hello there!";
-        logger.trace(message);
+        System.out.println(message);
         logger.debug(message);
         logger.info(message);
-        logger.warn(message);
         logger.error(message);
-        logger.fatal(message);
+
+        LoggerChild.log();
+    }
+
+    private static class LoggerChild {
+        private static final Logger childLogger = LogManager.getLogger(LoggerChild.class);
+
+        static void log() {
+            childLogger.debug("Hi Mom!");
+        }
     }
 }
