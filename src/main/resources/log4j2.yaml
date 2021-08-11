@@ -1,5 +1,6 @@
 Configuration:
   status: warn
+  monitorInterval: 60         #Recarrega as configurações a cada x segundos
   Properties:
     property:
       -
