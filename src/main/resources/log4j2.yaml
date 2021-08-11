@@ -1,17 +1,28 @@
 Configuration:
   status: warn
+  Properties:
+    property:
+      -
+        name: "LogDir"
+        value: "logs"
+      -
+        name: "DefaultPattern"
+        value: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+      -
+        name: "SimplePattern"
+        value: "[%p] %d{yyyy-MM-dd HH:mm} %c - %m%n"
   Appenders:
     File:
       -
         name: File_Appender
-        fileName: logfile.log
+        fileName: ${LogDir}/logfile.log
         PatternLayout:
-          Pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+          Pattern: ${DefaultPattern}
       -
         name: Child_Appender
-        fileName: childlogfile.log
+        fileName: ${LogDir}/childlogfile.log
         PatternLayout:
-          Pattern: "[%p] %d{yyyy-MM-dd HH:mm}{GMT+0} %c - %m%n"
+          Pattern: ${SimplePattern}
   Loggers:
     logger:
       -

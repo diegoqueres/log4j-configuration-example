@@ -31,5 +31,4 @@ buildNumber.properties
 .classpath
 
 ### Log files ###
-logfile.log
-childlogfile.log
+logs/
