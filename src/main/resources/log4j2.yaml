@@ -8,10 +8,10 @@ Configuration:
         value: "logs"
       -
         name: "DefaultPattern"
-        value: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+        value: "%d{HH:mm:ss.SSS} [%t] %x %-5level %logger{36} - %msg%n"
       -
         name: "SimplePattern"
-        value: "[%p] %d{yyyy-MM-dd HH:mm} %c - %m%n"
+        value: "[%p] %d{yyyy-MM-dd HH:mm} %x %c - %m%n"
   Appenders:
     File:
       -
