@@ -8,7 +8,7 @@ public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-        initNdcConfiguration();
+        initMdcConfiguration();
 
         String message = "Hello there!";
         System.out.println(message);
@@ -18,21 +18,17 @@ public class Main {
 
         LoggerChild.log();
 
-        finishNdcConfiguration();
+        finishMdcConfiguration();
     }
 
-    static void initNdcConfiguration() {
+    static void initMdcConfiguration() {
         //Irá prover uma saída com identificação, como o exemplo: 10:04:35.097 [main] [admin, 1234] ERROR com.company.Main ...
-        String username = "admin";
-        String sessionId = "1234";
-
-        ThreadContext.push(username);
-        ThreadContext.push(sessionId);
+        ThreadContext.put("username", "admin");
+        ThreadContext.put("sessionID", "1234");
     }
 
-    static void finishNdcConfiguration() {
-        ThreadContext.pop();
-        ThreadContext.removeStack();
+    static void finishMdcConfiguration() {
+        ThreadContext.clearMap();
     }
 
     private static class LoggerChild {
