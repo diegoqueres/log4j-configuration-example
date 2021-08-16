@@ -1,5 +1,6 @@
 Configuration:
   status: warn
+  packages: io.logz.log4j2
   monitorInterval: 60         #Recarrega as configurações a cada x segundos
   Properties:
     property:
@@ -24,14 +25,23 @@ Configuration:
         fileName: ${LogDir}/childlogfile.log
         PatternLayout:
           Pattern: ${SimplePattern}
+
+    LogzioAppender:
+      name: Logzio_Appender
+      logzioToken: <TOKEN DA SUA CONTA LOGZIO>
+      logzioUrl: https://listener.logz.io:8071
+      logzioType: java
   Loggers:
     logger:
       -
         name: net.diegoqueres.log4jconfiguration.Main
-        level: error
+        level: info
         additivity: false
         AppenderRef:
-          ref: File_Appender
+          -
+            ref: File_Appender
+          -
+            ref: Logzio_Appender
       -
         name: net.diegoqueres.log4jconfiguration.Main.LoggerChild
         level: debug

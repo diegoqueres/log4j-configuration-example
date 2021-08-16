@@ -10,11 +10,10 @@ public class Main {
     public static void main(String[] args) {
         initMdcConfiguration();
 
-        String message = "Hello there!";
-        System.out.println(message);
-        logger.debug(message);
-        logger.info(message);
-        logger.error(message);
+        System.out.println("This is a console message");
+        logger.debug("This is a debug log!");
+        logger.info("This is an info log!");
+        logger.error("This is an error log!");
 
         LoggerChild.log();
 
